@@ -10,7 +10,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 export const Assistant = () => {
   const runtime = useChatRuntime({
-    api: "http://localhost:4111/api/agents/customAgent/stream",
+    api: "https://full-brief-eve.mastra.cloud/api/agents/customAgent/stream",
   });
 
   return (
