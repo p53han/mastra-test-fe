@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   ArrowUpRight,
@@ -6,7 +6,8 @@ import {
   MoreHorizontal,
   StarOff,
   Trash2,
-} from "lucide-react"
+  PlusIcon,
+} from "lucide-react";
 
 import {
   DropdownMenu,
@@ -14,7 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -23,23 +24,36 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 export function NavFavorites({
   favorites,
+  onNewFavorite, // Optional: callback for new favorite
 }: {
   favorites: {
-    name: string
-    url: string
-    emoji: string
-  }[]
+    name: string;
+    url: string;
+    emoji: string;
+  }[];
+  onNewFavorite?: () => void; // Optional: handler for new favorite
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>Favorites</SidebarGroupLabel>
       <SidebarMenu>
+        {/* New Favorite Button */}
+        <SidebarMenuItem>
+          <SidebarMenuButton
+            className="flex items-center gap-2 text-primary"
+            onClick={onNewFavorite}
+          >
+            <PlusIcon className="w-4 h-4" />
+            <span>New Favorite</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        {/* Favorites List */}
         {favorites.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
@@ -62,7 +76,7 @@ export function NavFavorites({
               >
                 <DropdownMenuItem>
                   <StarOff className="text-muted-foreground" />
-                  <span>Remove from Favorites</span>
+                  <span>Archive</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -82,13 +96,7 @@ export function NavFavorites({
             </DropdownMenu>
           </SidebarMenuItem>
         ))}
-        <SidebarMenuItem>
-          <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal />
-            <span>More</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }
