@@ -5,7 +5,7 @@
       "args": ["-y", "@assistant-ui/mcp-docs-server"]
     },
     "plate": {
-      "description": "Plate editors, plugins, components and documentation",
+      "description": "Plate editors, plugins and components",
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "shadcn@canary", "registry:mcp"],

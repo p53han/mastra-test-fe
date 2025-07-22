@@ -15,7 +15,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { NavFavorites } from "@/components/nav-favorites";
+// import { NavFavorites } from "@/components/nav-favorites";
 import { NavMain } from "@/components/nav-main";
 // import { NavSecondary } from "@/components/nav-secondary";
 // import { NavWorkspaces } from "@/components/nav-workspaces";

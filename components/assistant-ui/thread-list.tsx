@@ -71,13 +71,29 @@ const ThreadListItem: FC = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <ArchiveIcon className="text-muted-foreground" />
-            <span>Archive</span>
+            <ThreadListItemPrimitive.Archive asChild>
+              <TooltipIconButton
+                className="hover:text-primary text-muted-foreground ml-auto size-4 p-0 mr-14"
+                variant="ghost"
+                tooltip="Archive thread"
+              >
+                <ArchiveIcon />
+                <span>Archive</span>
+              </TooltipIconButton>
+            </ThreadListItemPrimitive.Archive>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Trash2 className="text-muted-foreground" />
-            <span>Delete</span>
+            <ThreadListItemPrimitive.Delete asChild>
+              <TooltipIconButton
+                className="hover:text-primary text-muted-foreground ml-auto size-4 p-0 mr-15"
+                variant="ghost"
+                tooltip="Delete thread"
+              >
+                <Trash2 />
+                <span>Delete</span>
+              </TooltipIconButton>
+            </ThreadListItemPrimitive.Delete>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -93,16 +109,16 @@ const ThreadListItemTitle: FC = () => {
   );
 };
 
-const ThreadListItemArchive: FC = () => {
-  return (
-    <ThreadListItemPrimitive.Archive asChild>
-      <TooltipIconButton
-        className="hover:text-primary text-foreground ml-auto mr-3 size-4 p-0"
-        variant="ghost"
-        tooltip="Archive thread"
-      >
-        <ArchiveIcon />
-      </TooltipIconButton>
-    </ThreadListItemPrimitive.Archive>
-  );
-};
+// const ThreadListItemArchive: FC = () => {
+//   return (
+//     <ThreadListItemPrimitive.Archive asChild>
+//       <TooltipIconButton
+//         className="hover:text-primary text-foreground ml-auto mr-3 size-4 p-0"
+//         variant="ghost"
+//         tooltip="Archive thread"
+//       >
+//         <ArchiveIcon />
+//       </TooltipIconButton>
+//     </ThreadListItemPrimitive.Archive>
+//   );
+// };
