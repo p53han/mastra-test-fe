@@ -45,7 +45,7 @@ import {
 } from './block-suggestion';
 import { Comment, CommentCreateForm } from './comment';
 
-export const BlockDiscussion: RenderNodeWrapper<AnyPluginConfig> = (props) => {
+export const BlockDiscussion: RenderNodeWrapper<AnyPluginConfig> = function BlockDiscussion(props) {
   const { editor, element } = props;
 
   const commentsApi = editor.getApi(CommentPlugin).comment;
@@ -70,15 +70,21 @@ export const BlockDiscussion: RenderNodeWrapper<AnyPluginConfig> = (props) => {
     return;
   }
 
-  return (props) => (
-    <BlockCommentContent
-      blockPath={blockPath}
-      commentNodes={commentNodes}
-      draftCommentNode={draftCommentNode}
-      suggestionNodes={suggestionNodes}
-      {...props}
-    />
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function BlockDiscussionInner(wrapperProps: any) {
+    return (
+      <BlockCommentContent
+        blockPath={blockPath}
+        commentNodes={commentNodes}
+        draftCommentNode={draftCommentNode}
+        suggestionNodes={suggestionNodes}
+        {...wrapperProps}
+      />
+    );
+  }
+  BlockDiscussionInner.displayName = "BlockDiscussionInner";
+
+  return BlockDiscussionInner;
 };
 
 const BlockCommentContent = ({

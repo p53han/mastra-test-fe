@@ -6,6 +6,7 @@ import type {
   TImageElement,
   TResizableProps,
 } from 'platejs';
+import Image from 'next/image';
 
 import { NodeApi, SlateElement } from 'platejs';
 
@@ -23,13 +24,19 @@ export function ImageElementStatic(
           className="relative max-w-full min-w-[92px]"
           style={{ textAlign: align }}
         >
-          <img
+          <Image
             className={cn(
               'w-full max-w-full cursor-default object-cover px-0',
               'rounded-sm'
             )}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             alt={(props.attributes as any).alt}
             src={url}
+            fill={false}
+            width={width ?? 400}
+            height={300}
+            style={{ objectFit: 'cover' }}
+            unoptimized
           />
           {caption && (
             <figcaption className="mx-auto mt-2 h-[24px] max-w-full">

@@ -11,6 +11,7 @@ export default function MyEditor({ id }: { id: string }) {
     plugins: EditorKit,
     // value: DEMO_VALUES[id],
   });
+  console.log(editor.value, id);
   return (
     <Plate editor={editor}>
       <EditorContainer variant="demo">

@@ -27,7 +27,9 @@ const config: Record<
 export const BlockListStatic: RenderStaticNodeWrapper = (props) => {
   if (!props.element.listStyleType) return;
 
-  return (props) => <List {...props} />;
+  const BlockListStaticInner = (props: SlateRenderElementProps) => <List {...props} />;
+  BlockListStaticInner.displayName = "BlockListStaticInner";
+  return BlockListStaticInner;
 };
 
 function List(props: SlateRenderElementProps) {

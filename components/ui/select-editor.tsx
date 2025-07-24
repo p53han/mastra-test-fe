@@ -135,7 +135,7 @@ export function SelectEditorContent({
 export const SelectEditorInput = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof Editor>
->((props, ref) => {
+>(function SelectEditorInput(props, ref) {
   const editor = useEditorRef();
   const { setOpen } = useSelectEditorContext();
   const { selectCurrentItem, selectFirstItem } = useCommandActions();
@@ -182,6 +182,7 @@ export function SelectEditorCombobox() {
 
   return (
     <Popover open={open}>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <PopoverAnchor virtualRef={containerRef as any} />
       <PopoverContent
         className="p-0 data-[state=open]:animate-none"
@@ -209,7 +210,7 @@ export function SelectEditorCombobox() {
                   <div className="flex items-center gap-1">
                     <PlusIcon className="size-4 text-foreground" />
                     Create new label:
-                    <span className="text-gray-600">"{item.value}"</span>
+                    <span className="text-gray-600">&quot;{item.value}&quot;</span>
                   </div>
                 ) : (
                   item.value

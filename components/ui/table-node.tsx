@@ -469,6 +469,7 @@ export function TableRowElement(props: PlateElementProps<TTableRowElement>) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function RowDragHandle({ dragRef }: { dragRef: React.Ref<any> }) {
   const editor = useEditorRef();
   const element = useElement();
@@ -597,6 +598,7 @@ export function TableCellElement({
                 className={cn(
                   'absolute top-0 z-30 hidden h-full w-1 bg-ring',
                   'right-[-1.5px]',
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   columnResizeVariants({ colIndex: colIndex as any })
                 )}
               />

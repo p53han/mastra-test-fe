@@ -31,10 +31,12 @@ const config: Record<
   },
 };
 
-export const BlockList: RenderNodeWrapper = (props) => {
+export const BlockList: RenderNodeWrapper = function BlockList(props) {
   if (!props.element.listStyleType) return;
 
-  return (props) => <List {...props} />;
+  return function BlockListInner(props) {
+    return <List {...props} />;
+  };
 };
 
 function List(props: PlateElementProps) {

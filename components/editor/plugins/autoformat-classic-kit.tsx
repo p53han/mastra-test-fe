@@ -19,6 +19,7 @@ import { ElementApi, isType, KEYS } from 'platejs';
 const preFormat: AutoformatBlockRule['preFormat'] = (editor) =>
   unwrapList(editor);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const format = (editor: SlateEditor, customFormatting: any) => {
   if (editor.selection) {
     const parentEntry = editor.api.parent(editor.selection);

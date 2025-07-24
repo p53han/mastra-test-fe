@@ -21,6 +21,7 @@ export const TabbableKit = TabbablePlugin.configure(({ editor }) => ({
                 KEYS.li,
                 KEYS.listTodoClassic,
                 KEYS.table,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
               ].includes(n.type as any)) ||
             n.listStyleType
           );

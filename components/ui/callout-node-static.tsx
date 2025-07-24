@@ -15,6 +15,7 @@ export function CalloutElementStatic({
     <SlateElement
       className={cn('my-1 flex rounded-sm bg-muted p-4 pl-3', className)}
       style={{
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         backgroundColor: props.element.backgroundColor as any,
       }}
       {...props}
@@ -28,6 +29,7 @@ export function CalloutElementStatic({
           }}
         >
           <span data-plate-prevent-deserialization>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {(props.element.icon as any) || '💡'}
           </span>
         </div>
