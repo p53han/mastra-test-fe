@@ -6,7 +6,7 @@ import { Thread } from "@/components/assistant-ui/thread";
 import {
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
+  SidebarTrigger
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
@@ -18,6 +18,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import MyEditor from "@/components/editor";
 
 export const Assistant = () => {
   const runtime = useChatRuntime({
@@ -46,7 +47,18 @@ export const Assistant = () => {
               </BreadcrumbList>
             </Breadcrumb>
           </header>
-          <Thread />
+          {/* Main content area split into two columns */}
+          <div className="flex flex-row h-[calc(100vh-4rem)]">
+            {/* Left: Thread/Chat */}
+            <div className="flex-1 border-r overflow-auto">
+              <Thread />
+            </div>
+            {/* Right: Plate.js Workspace (no header) */}
+            <div className="flex-1 p-4 overflow-auto">
+              <h2 className="text-lg font-semibold mb-2">Plate.js Workspace</h2>
+              <MyEditor id="1" />
+            </div>
+          </div>
         </SidebarInset>
       </SidebarProvider>
     </AssistantRuntimeProvider>
