@@ -48,7 +48,7 @@ export const Assistant = () => {
             </Breadcrumb>
           </header>
           {/* Main content area split into two columns */}
-          <div className="flex flex-row h-[calc(100vh-4rem)]">
+          <div className="flex flex-row w-280 h-[calc(100vh-4rem)]">
             {/* Left: Thread/Chat */}
             <div className="flex-1 border-r overflow-auto">
               <Thread />
